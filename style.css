@@ -1,0 +1,58 @@
+:root{
+    --main-blue: #45567d;
+    --main-white: #f0f0f0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+text-decoration: none;
+
+}
+
+#navbar{
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+    background-color: rgb(37, 21, 1);
+    
+
+}
+
+.navlist{
+    display: flex;
+    list-style-type: none;
+
+}
+.navlist li{
+    padding: 1rem; 
+
+}
+.navlist a{
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: var(--main-white);
+
+}
+
+.navlist a:hover{
+    background: var(--main-blue);
+    color: rgb(129, 129, 129);
+}
+
+#welcome-section{
+    height:100vh;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
