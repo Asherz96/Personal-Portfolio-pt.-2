@@ -8,6 +8,11 @@
     padding: 0;
 }
 
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
 a{
 text-decoration: none;
 font-family: 'Oxygen', sans-serif;
@@ -16,6 +21,11 @@ font-family: 'Oxygen', sans-serif;
 
 body{
 font-family: 'Oxygen', sans-serif;
+}
+
+img{
+    height: 200px;
+    display: block;
 }
 
 #navbar{
@@ -63,4 +73,30 @@ font-family: 'Oxygen', sans-serif;
     align-items: center;
 }
 
+h1{
+    font-size: 5rem;
+    color:rgb(255, 255, 255);
+}
+h2{
+font-size: 3rem;
 
+}
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+    html {
+      font-size: 60%;
+    }
+  }
+/* 980px / 16px = 61.25em */
+  @media (max-width: 61.25em) {
+    html {
+      font-size: 60%;
+    }
+  }
+/* 640px / 16px = 28.75em */
+  @media (max-width: 40em) {
+    html {
+      font-size: 50%;
+    }
+  }
