@@ -1,3 +1,8 @@
+// square braces = array
+// curly braces = object
+// "",'' = string
+
+
 // Variables - containers that store values. 
 
 var name; // a declared variable, but not initialized (no value) and in the global scope (not good practice).
@@ -43,4 +48,24 @@ let myArray2 = [42, "Bob", false, "42", true];
 
 let lastItem = myArray2[myArray2. length - 1];
 
+// Objects
 
+let minObject = {// JS objects are comprised of key:value pairs
+make: 'Jeep',
+model: 'Cherokee',
+year: '1998',
+vin: '2374372987597343588734579'
+}
+
+let newVar =
+
+
+// Functions
+
+function myFunction() {
+  return "My greeting to you from this very fine, simple function!"  
+}
+
+function sumTwoThings(thing1, thing2) {
+    return thing1 + thing2;
+}
