@@ -1,6 +1,5 @@
-console.log('Hello Console!')
-
 import {films} from '../Data/films.js'
+
 console.log(films[0].url)
 
 function getLastNumber(url){
