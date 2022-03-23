@@ -1,20 +1,20 @@
 import {films} from '../Data/films.js'
+import { getLastNumber } from '../utils/index.js'
 
 console.log(films[0].url)
 
-function getLastNumber(url){
+/* function getLastNumber(url){
     const secondToLastLetterOfUrl = url[url.length - 2]
     return secondToLastLetterOfUrl // return the second to last number from the url property of a film object
-}
+} */
 
 // first get a reference to the main element with the id "filmList" and store it in a variable
 let filmList = document.querySelector('#filmList')
 
 // for (initialize variable; condition check; increment Variable)
 for (let i = 0; i < films.length; i++) {
-
-
 // second use the document.createElement method/function to create a new img element
+
 let figure = document.createElement('figure')
 let figImage = document.createElement('img') 
 let figCaption = document.createElement('figcaption')

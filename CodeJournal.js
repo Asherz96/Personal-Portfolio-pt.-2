@@ -50,15 +50,28 @@ let lastItem = myArray2[myArray2. length - 1];
 
 // Objects
 
-let minObject = {// JS objects are comprised of key:value pairs
+let minObject = {}; // this is the most minimal javascript object you can have
+
+let myCar = { // JS objects are comprised of key:value pairs
 make: 'Jeep',
 model: 'Cherokee',
 year: '1998',
 vin: '2374372987597343588734579'
+  }
+
+let newVar = myCar.make; // used dot notation (.) to access an object's property value
+
+myCar.numDoors = 6; // can also use dot notation to add a property to an object
+
+
+const anotherObject = {
+  wordz: ['foo', 'bar', 'baz'],
+  car: {
+    make: 'Mclaren',
+    model: '720S'
+  },
+  awesomeness: true
 }
-
-let newVar =
-
 
 // Functions
 

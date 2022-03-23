@@ -1,4 +1,5 @@
-import { people } from "../Data/people.js"
+import { people } from '../Data/people.js'
+import { getLastNumber, removeChildren } from '../utils/index.js'
 
 const header = document.querySelector("header")
 const main = document.querySelector("main")
@@ -10,15 +11,38 @@ allCharactersButton.addEventListener("click", function () {
 })
 
 // const result = words.filter(word => word.length > 6);
-const maleCharacters = people.filter(person => person.gender === 'male')
+const maleCharacters = people.filter(person => person.gender === 'male') // elegant filter!
+
+
+/* const otherCharacters = people.filter(person => {
+  if( 
+person.gender === 'n/a' ||
+person.gender === 'none' ||
+person.gender === 'hermaphrodite' 
+  ){
+    return person
+  }
+}) */
+
+const otherCharacters = people.filter((person) => person.gender !== "male" && person.gender !== "female")
+
+/* const maleCharacters = people.filter((person) => {
+  console.log(person.name)
+  return person.gender === 'male'
+}) */
 
 
 const maleCharactersButton = document.createElement('button')
 maleCharactersButton.textContent = "Male Characters"
-maleCharactersButton.addEventListener("click", () => populateDOM(people))
+maleCharactersButton.addEventListener("click", () => populateDOM(maleCharacters))
+
+const otherCharactersButton = document.createElement('button')
+otherCharactersButton.textContent = "Other Characters"
+otherCharactersButton.addEventListener("click", () => populateDOM(otherCharacters))
 
 header.appendChild(allCharactersButton)
 header.appendChild(maleCharactersButton)
+header.appendChild(otherCharactersButton)
 
 function populateDOM(characters) {
   removeChildren(main)
@@ -36,7 +60,7 @@ function populateDOM(characters) {
   })
 }
 
-function getLastNumber(url){
+/* function getLastNumber(url){
     const secondToLastLetterOfUrl = url[url.length - 2]
     return secondToLastLetterOfUrl // return the second to last number from the url property of a film object
 }
@@ -46,4 +70,6 @@ let element = document.getElementById('top')
 while (element.firstChild) {
 element.removeChild(element.firstChild)
 }
-}
+} */
+
+populateDOM(people)

@@ -1,9 +1,17 @@
 main{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
-figure img{
-
-}
-
+  figure img {
+    height: 20rem;
+  }
+  
+  button {
+    width: 10rem;
+    height: 3rem;
+    margin: 1rem;
+    background-color: blue;
+    color: whitesmoke;
+  }
