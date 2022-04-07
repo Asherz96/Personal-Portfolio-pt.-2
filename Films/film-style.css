@@ -9,12 +9,30 @@ h1 {
   display: flex;
   justify-content: center;
   margin: 1rem;
+  font-family:monospace;
 }
 
 main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
 
 }
+
+figure img {
+  height: 20rem;
+  border: solid 1px navy;
+  margin: 1rem;
+}
+
+figcaption {
+  text-align: center;
+  background-color: navy;
+  padding: 1rem;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 2px 4px 6px grey;
+  font-family: monospace;
+ }
+
 

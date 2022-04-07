@@ -1,3 +1,4 @@
+
 // square braces = array
 // curly braces = object
 // "",'' = string
@@ -82,3 +83,66 @@ function myFunction() {
 function sumTwoThings(thing1, thing2) {
     return thing1 + thing2;
 }
+
+// Filter method example, Filter returns an array of all elements that 'pass the tests'
+
+const pilots = [
+  {
+    id: 2,
+    name: "Wedge Antilles",
+    faction: "Rebels"
+  },
+  {
+    id: 8,
+    name: "Ciena Ree",
+    faction: "Empire"
+  },
+  {
+    id: 40,
+    name: "Iden Versio",
+    faction: "Empire"
+  },
+  {
+    id: 66,
+    name: "Thane Kyrell",
+    faction: "Rebels"
+  }
+]
+
+const rebels = pilots.filter(pilot => pilot.faction === "Rebels")
+
+const empire = pilots.filter((pilot) => {
+return pilot.faction === "Empire"
+})
+
+// Array helper method 'map' example
+
+let filmURLs = [
+  "https://swapi.co/api/films/",
+  "https://swapi.co/api/films/5/",
+  "https://swapi.co/api/films/4/this one is longer... even longer",
+  "https://swapi.co/api/films/6/",
+  "https: ",
+  "https://swapi.co/api/films/1/"
+]
+
+const filmLengths = filmURLs.map(filmURL => filmURL.length)
+
+const filmPlusMore = filmURLs.map((filmURL) => {
+let filmObj = {
+  url: filmURL,
+  createDate: Date.now()
+}
+return filmObj
+})
+
+const pilotNames = pilot.map(pilot => pilot.name)
+
+// Ternary (tres leches) operator syntax: condition ? exprIfTrue : exprIfFalse
+
+//Reduce example
+
+| | | | | | // First time through     0     {}   0 +   14
+const totalYears = swpilots.reduce((acc, pilot) => acc + pilot.years, 0) // the 'accumulation' value of 14 becomea the value of acc
+
+const mostExpPilot = swpilots.reduce((oldest, pilot) => oldest.years > pilot.years ? oldest : pilot)

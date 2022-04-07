@@ -1,3 +1,10 @@
+header {
+display: flex;
+justify-content: center;
+
+}
+
+
 main{
     display: flex;
     flex-wrap: wrap;
@@ -6,12 +13,25 @@ main{
 
   figure img {
     height: 20rem;
+    border: solid 1px navy;
   }
   
   button {
     width: 10rem;
     height: 3rem;
     margin: 1rem;
-    background-color: blue;
+    background-color: navy;
     color: whitesmoke;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  figcaption {
+   text-align: center;
+   background-color: navy;
+   padding: 0.5rem;
+   border-radius: 2px;
+   color: white;
+   box-shadow: 2px 4px 6px grey;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+
   }

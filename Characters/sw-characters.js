@@ -13,6 +13,12 @@ allCharactersButton.addEventListener("click", function () {
 // const result = words.filter(word => word.length > 6);
 const maleCharacters = people.filter(person => person.gender === 'male') // elegant filter!
 
+/* const maleCharacters = people.filter((person) => {
+  console.log(person.name)
+  return person.gender === 'male'
+}) */
+
+const femaleCharacters = people.filter(person => person.gender === 'female') 
 
 /* const otherCharacters = people.filter(person => {
   if( 
@@ -26,15 +32,14 @@ person.gender === 'hermaphrodite'
 
 const otherCharacters = people.filter((person) => person.gender !== "male" && person.gender !== "female")
 
-/* const maleCharacters = people.filter((person) => {
-  console.log(person.name)
-  return person.gender === 'male'
-}) */
-
 
 const maleCharactersButton = document.createElement('button')
 maleCharactersButton.textContent = "Male Characters"
 maleCharactersButton.addEventListener("click", () => populateDOM(maleCharacters))
+
+const femaleCharactersButton = document.createElement('button')
+femaleCharactersButton.textContent = "Female Characters"
+femaleCharactersButton.addEventListener("click", () => populateDOM(femaleCharacters))
 
 const otherCharactersButton = document.createElement('button')
 otherCharactersButton.textContent = "Other Characters"
@@ -42,7 +47,9 @@ otherCharactersButton.addEventListener("click", () => populateDOM(otherCharacter
 
 header.appendChild(allCharactersButton)
 header.appendChild(maleCharactersButton)
+header.appendChild(femaleCharactersButton)
 header.appendChild(otherCharactersButton)
+
 
 function populateDOM(characters) {
   removeChildren(main)
