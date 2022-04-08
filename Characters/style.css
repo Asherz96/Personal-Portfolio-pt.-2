@@ -4,34 +4,56 @@ justify-content: center;
 
 }
 
+body{
+  background-image: url(/Characters/ImagesCH/dark-background-4.jpg);
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+ color: whitesmoke;
+ background-color: black;
+ padding: 1rem;
+}
 
 main{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
   figure img {
     height: 20rem;
-    border: solid 1px navy;
+    border: solid 3px lightgray;
   }
   
   button {
-    width: 10rem;
-    height: 3rem;
+    width: 9rem;
+    height: 2.5rem;
     margin: 1rem;
-    background-color: navy;
+    background-color: dimgray;
     color: whitesmoke;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-  }
+    border-radius: 7px;
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
 
   figcaption {
    text-align: center;
-   background-color: navy;
+   background-color: black;
    padding: 0.5rem;
    border-radius: 2px;
    color: white;
-   box-shadow: 2px 4px 6px grey;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-family: 'Cinzel', serif;
+   margin-top: 5px;
 
+  }
+
+  footer{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: x-small;
+    margin-top: 0.5rem;
   }

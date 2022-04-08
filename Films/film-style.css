@@ -4,35 +4,51 @@
   box-sizing: border-box;
 }
 
+body {
+background-image: url(/Films/ImagesF/pexels-photo-998641.jpeg);
+}
+
 h1 {
-  color: rgb(155, 18, 0);
+  color:whitesmoke;
   display: flex;
   justify-content: center;
   margin: 1rem;
-  font-family:monospace;
+  font-family: 'Cinzel', serif;
+  text-shadow: 1px 1px 1px red;
 }
 
 main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 
 }
 
 figure img {
   height: 20rem;
-  border: solid 1px navy;
-  margin: 1rem;
+  border: solid 1px darkgray;
+  margin-top: 0.5rem;
+  box-shadow: 2px 4px 6px grey;
 }
 
 figcaption {
+  margin: 0.5rem 1rem;
   text-align: center;
-  background-color: navy;
-  padding: 1rem;
+  background-color: rgb(134, 5, 5);
+  padding: 8px;
   border-radius: 5px;
   color: white;
   box-shadow: 2px 4px 6px grey;
-  font-family: monospace;
+  font-family: 'Cinzel', serif;
+  
  }
 
+ footer{
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-size: x-small;
+  margin-top: 1rem;
+}
 

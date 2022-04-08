@@ -5,23 +5,55 @@ box-sizing: border-box;
 }
 
 h1 { 
+background-image: url(/Congress/ImagesC/ameflagbg.jpg);
 text-align: center;
 padding: 1rem;
+color: white;
+text-shadow: 1px 1px 1px lightgray;
+
 }
+
 .senatorsDiv {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-figcaption {
-text-align: center;
-margin: 5px 6px;
+.seniority{
+    margin: 1rem;
+}
+.loyaltyList {
+list-style-type: none;
+display: flex;
+justify-content: space-evenly;
+ padding: 1rem;
 
-background-color: lightgrey;
-font-family: cursive;
+}
+
+figcaption {
+font-family: sans-serif;
+text-align: center;
+margin: 1px 6px;
+background: linear-gradient(#022653, #004f8f);
+border-radius: 5px;
+padding: 7px;
+font-weight: bold;
+color: white;
+text-shadow: 1px 1px 1px grey;
+
 }
 
 img {
 margin: 15px;
+border: solid 3px #022653;
+}
+
+footer{
+    background-image: url(/Congress/ImagesC/ameflagbg.jpg);
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-size: x-small;
+    margin-top: 15px;
+
 }
