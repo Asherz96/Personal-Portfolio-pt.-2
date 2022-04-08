@@ -4,13 +4,16 @@ padding: 0;
 box-sizing: border-box;
 }
 
+body{
+    background-color: lightgray;
+}
+
 h1 { 
 background-image: url(/Congress/ImagesC/ameflagbg.jpg);
 text-align: center;
 padding: 1rem;
 color: white;
 text-shadow: 1px 1px 1px lightgray;
-
 }
 
 .senatorsDiv {
@@ -20,14 +23,24 @@ text-shadow: 1px 1px 1px lightgray;
 }
 
 .seniority{
-    margin: 1rem;
+    margin: 1rem 2rem 3rem 3rem;
+    padding: 1rem;
+    
 }
+
+p {
+text-align: center;
+color: #022653;
+font-size: x-large;
+font-weight: bolder;
+}
+
 .loyaltyList {
 list-style-type: none;
 display: flex;
 justify-content: space-evenly;
  padding: 1rem;
-
+margin-bottom: 1rem;
 }
 
 figcaption {
@@ -39,7 +52,6 @@ border-radius: 5px;
 padding: 7px;
 font-weight: bold;
 color: white;
-text-shadow: 1px 1px 1px grey;
 
 }
 

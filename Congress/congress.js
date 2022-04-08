@@ -1,6 +1,7 @@
 import { senators } from '../Data/senators.js'
 import { representatives } from '../data/representatives.js'
 
+
 const allMembersOfCongress = [...senators, ...representatives] // modern combining of array data... like a genius!
 
 const senatorsDiv = document.querySelector('.senatorsDiv')

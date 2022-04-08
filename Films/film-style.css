@@ -27,12 +27,12 @@ main {
 figure img {
   height: 20rem;
   border: solid 1px darkgray;
-  margin-top: 0.5rem;
+  margin: 1rem;
   box-shadow: 2px 4px 6px grey;
 }
 
 figcaption {
-  margin: 0.5rem 1rem;
+  margin: 1rem 1rem;
   text-align: center;
   background-color: rgb(134, 5, 5);
   padding: 8px;
