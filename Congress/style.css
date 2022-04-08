@@ -4,6 +4,15 @@ padding: 0;
 box-sizing: border-box;
 }
 
+button {
+    width: 9rem;
+    height: 2.5rem;
+    margin: 1rem;
+    background-color: dimgray;
+    color: whitesmoke;
+    border-radius: 7px;
+}
+
 body{
     background-color: lightgray;
 }
@@ -60,11 +69,12 @@ margin: 15px;
 border: solid 3px #022653;
 }
 
+
 footer{
     background-image: url(/Congress/ImagesC/ameflagbg.jpg);
     text-align: center;
     color: white;
-    padding: 10px;
+    padding: 20px;
     font-size: x-small;
     margin-top: 15px;
 

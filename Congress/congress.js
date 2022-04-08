@@ -1,8 +1,26 @@
 import { senators } from '../Data/senators.js'
 import { representatives } from '../data/representatives.js'
+import { getLastNumber, removeChildren } from '../utils/index.js'
 
+const header = document.querySelector("header")
+const main = document.querySelector("main")
 
 const allMembersOfCongress = [...senators, ...representatives] // modern combining of array data... like a genius!
+
+const femaleSenators = senators.filter(senators => senators.gender === 'Female') 
+const maleSenators = senators.filter(senators => senators.gender === 'male')
+
+const femaleSenatorsButton = document.createElement('button')
+femaleSenatorsButton.textContent = "Female Senators"
+femaleSenatorsButton.addEventListener("click", () => populateDOM(femaleSenators))
+
+const maleSenatorsButton = document.createElement('button')
+maleSenatorsButton.textContent = "Male Senators"
+maleSenatorsButton.addEventListener("click", () => populateDOM(maleSenators))
+
+header.appendChild(femaleSenatorsButton)
+header.appendChild(maleSenatorsButton)
+
 
 const senatorsDiv = document.querySelector('.senatorsDiv')
 const seniorityHeader = document.querySelector('.seniority')
@@ -25,6 +43,7 @@ return senators.map(senator => {
     }
 })
 }
+
 function populateSenatorDiv(senatorsArray) {
 senatorsArray.forEach(senator => {
     const senFigure = document.createElement('figure')
