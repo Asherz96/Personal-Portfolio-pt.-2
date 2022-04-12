@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.pokeGrid{
+display: flex;
+flex-wrap: wrap;
+}
+
+.scene{
+    width: 200px;
+}
+
+.card {
+width:100%;
+height: 260px;
+transition: transform 1s;
+transform-style: preserve-3d;
+cursor: pointer;
+position: relative;
+}
+
+.card.is_flipped {
+transform: rotateY(180deg);
+
+}
+
+.cardFace {
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+}
+
+.front {
+    background-color: darkseagreen;
+}
+
+.back{
+    background-color: aqua;
+transform: rotateY(180deg);
+
+}
+
+figure img{
+    width: 200px;
+}
+
