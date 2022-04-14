@@ -1,20 +1,19 @@
-*{
+* { 
     margin: 0;
     box-sizing: border-box;
 }
 
-
-.pokeGrid{
+.pokeGrid {
 display: flex;
 flex-wrap: wrap;
+
 }
 
 .scene{
     width: 200px;
     height: 200px;
     perspective: 600px;
-    margin: 1rem;
-    
+     margin: 1rem;
 }
 
 .card {
@@ -26,9 +25,8 @@ cursor: pointer;
 position: relative;
 }
 
-.card.is_flipped {
+.card.is-flipped {
 transform: rotateY(180deg);
-
 }
 
 .cardFace {
@@ -52,3 +50,10 @@ figure img{
     width: 200px;
 }
 
+footer {
+  text-align: center;
+  color: blueviolet;
+  padding: 20px;
+  font-size: x-small;
+  margin-top: 15px;
+}
