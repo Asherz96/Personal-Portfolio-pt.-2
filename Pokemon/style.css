@@ -1,32 +1,50 @@
 * { 
     margin: 0;
     box-sizing: border-box;
+    cursor: url(/Pokemon/ImagesP/Pokemon-logo.png), auto;
+}
+
+h2{
+    text-align: center;
+    padding: 2rem;
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+    color: #ffde00;
+    text-shadow: 2px 2px 5px #003a70;
+    background-color: #3d7dca;
+}
+
+main {
+border: solid 3px #003a70;
+margin: 1rem;
+padding: 1rem 1rem 5rem 1rem;
 }
 
 .pokeGrid {
 display: flex;
 flex-wrap: wrap;
+justify-content: center;
 
 }
 
-.scene{
+.scene {
     width: 200px;
     height: 200px;
     perspective: 600px;
-     margin: 1rem;
+     margin: 3em 1em;
 }
 
 .card {
-width:100%;
+width: 100%;
 height: 260px;
-transition: transform 1s;
+transition: transform 2s;
 transform-style: preserve-3d;
 cursor: pointer;
 position: relative;
 }
 
 .card.is-flipped {
-transform: rotateY(180deg);
+transform: rotateY(180deg)
 }
 
 .cardFace {
@@ -34,26 +52,35 @@ position: absolute;
 width: 100%;
 height: 100%;
 backface-visibility: hidden;
+
 }
 
 .Front {
-    background-color: darkseagreen;
+    background-color: #3d7dca;
 }
 
 .Back{
-    background-color: aqua;
-transform: rotateY(180deg);
-
+    background-color: lightblue;
+    transform: rotateY(180deg);
 }
 
 figure img{
     width: 200px;
 }
 
+figcaption{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #003a70;
+    color: white;
+}
+
 footer {
   text-align: center;
-  color: blueviolet;
+  color: white;
   padding: 20px;
   font-size: x-small;
-  margin-top: 15px;
+  background-color: #3d7dca;
+
 }

@@ -6,41 +6,45 @@
 
 body {
 background-image: url(/Films/ImagesF/pexels-photo-998641.jpeg);
+cursor: url(/Films/ImagesF/green\ lightsaber.png), auto;
 }
 
 h1 {
   color:whitesmoke;
   display: flex;
   justify-content: center;
-  margin: 1rem;
+  margin: 2rem;
   font-family: 'Cinzel', serif;
-  text-shadow: 1px 1px 1px red;
+  text-shadow: 1px 1px 1px darkgray;
 }
 
 main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 
 figure img {
   height: 20rem;
-  border: solid 1px darkgray;
   margin: 1rem;
-  box-shadow: 2px 4px 6px grey;
+  box-shadow: 1px 1px 3px darkgray;
 }
+ img:hover {
+  transform: translatey(5px);
+ }
 
 figcaption {
   margin: 1rem 1rem;
   text-align: center;
-  background-color: rgb(134, 5, 5);
-  padding: 8px;
-  border-radius: 5px;
+  background-color: black;
+  padding: 7px;
+  border-radius: 15px;
   color: white;
-  box-shadow: 2px 4px 6px grey;
   font-family: 'Cinzel', serif;
   
+ }
+ figcaption:hover{
+   background-color: darkred;
  }
 
  footer{

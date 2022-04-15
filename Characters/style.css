@@ -1,3 +1,7 @@
+*{
+  cursor: url(/Characters/Imagesch/purple\ lightsaber.png), auto;
+}
+
 header {
 display: flex;
 justify-content: center;
@@ -12,8 +16,8 @@ h1 {
   text-align: center;
   font-family: 'Cinzel', serif;
  color: whitesmoke;
- background-color: black;
  padding: 1rem;
+ text-shadow: 1px 1px 1px darkgray;
 }
 
 main{
@@ -24,27 +28,32 @@ main{
 
   figure img {
     height: 20rem;
-    border: solid 3px lightgray;
   }
+
   
   button {
     width: 9rem;
     height: 2.5rem;
     margin: 1rem;
-    background-color: dimgray;
+    background-color: darkred;
     color: whitesmoke;
-    border-radius: 7px;
+    border-radius: 5px;
     font-size: small;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+   }
+
+   button:hover {
+    transform: translatey(2px);
    }
 
   figcaption {
    text-align: center;
    background-color: black;
    padding: 0.5rem;
-   border-radius: 2px;
+   border-radius: 15px;
    color: white;
-   font-family: 'Cinzel', serif;
+   text-shadow: 1px 1px 0.5px darkred;
    margin-top: 5px;
 
   }

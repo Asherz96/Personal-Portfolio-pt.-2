@@ -7,20 +7,31 @@ const buttonsDiv = document.querySelector('.buttonsDiv')
 
 const allMembersOfCongress = [...senators, ...representatives] // modern combining of array data... like a genius!
 
-const femaleSenators = senators.filter(senators => senators.gender === 'Female') 
-const maleSenators = senators.filter(senators => senators.gender === 'male')
-const democrats = senators.filter(senators => senators.party === 'D') 
+const femaleSenators = simplifiedSenators().filter(senators => senators.gender === 'F') 
+const maleSenators = simplifiedSenators().filter(senators => senators.gender === 'M')
+const democrats = simplifiedSenators().filter(senators => senators.party === 'D') 
+const republicans = simplifiedSenators().filter(senators => senators.party === 'R')
 
 const femaleSenatorsButton = document.createElement('button')
 femaleSenatorsButton.textContent = "Female Senators"
-femaleSenatorsButton.addEventListener("click", () => populatebuttonsDiv(femaleSenators))
+femaleSenatorsButton.addEventListener("click", () => populateButtonsDiv(femaleSenators))
 
 const maleSenatorsButton = document.createElement('button')
 maleSenatorsButton.textContent = "Male Senators"
-maleSenatorsButton.addEventListener("click", () => populatebuttonsDiv(maleSenators))
+maleSenatorsButton.addEventListener("click", () => populateButtonsDiv(maleSenators))
+
+const democratsButton = document.createElement('button')
+democratsButton.textContent = "Democrats"
+democratsButton.addEventListener("click", () => populateButtonsDiv(democrats))
+
+const repubilcansButton = document.createElement('button')
+repubilcansButton.textContent = "Republicans"
+repubilcansButton.addEventListener("click", () => populateButtonsDiv(republicans))
 
 buttonsDiv.appendChild(femaleSenatorsButton)
 buttonsDiv.appendChild(maleSenatorsButton)
+buttonsDiv.appendChild(democratsButton)
+buttonsDiv.appendChild(repubilcansButton)
 
 
 const main = document.querySelector("main")
@@ -46,8 +57,13 @@ return senators.map(senator => {
 })
 }
 
+function populateButtonsDiv() {
+
+
+}
+
+
 function populateSenatorDiv(senatorsArray) { 
-  removeChildren(senatorsDiv)
 senatorsArray.forEach((senator) => {
     const senFigure = document.createElement('figure')
     const figImg = document.createElement('img')
