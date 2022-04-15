@@ -3,25 +3,27 @@ import { representatives } from '../data/representatives.js'
 import { getLastNumber, removeChildren } from '../utils/index.js'
 
 const header = document.querySelector("header")
-const main = document.querySelector("main")
+const buttonsDiv = document.querySelector('.buttonsDiv')
 
 const allMembersOfCongress = [...senators, ...representatives] // modern combining of array data... like a genius!
 
 const femaleSenators = senators.filter(senators => senators.gender === 'Female') 
 const maleSenators = senators.filter(senators => senators.gender === 'male')
+const democrats = senators.filter(senators => senators.party === 'D') 
 
 const femaleSenatorsButton = document.createElement('button')
 femaleSenatorsButton.textContent = "Female Senators"
-femaleSenatorsButton.addEventListener("click", () => populateDOM(femaleSenators))
+femaleSenatorsButton.addEventListener("click", () => populatebuttonsDiv(femaleSenators))
 
 const maleSenatorsButton = document.createElement('button')
 maleSenatorsButton.textContent = "Male Senators"
-maleSenatorsButton.addEventListener("click", () => populateDOM(maleSenators))
+maleSenatorsButton.addEventListener("click", () => populatebuttonsDiv(maleSenators))
 
-header.appendChild(femaleSenatorsButton)
-header.appendChild(maleSenatorsButton)
+buttonsDiv.appendChild(femaleSenatorsButton)
+buttonsDiv.appendChild(maleSenatorsButton)
 
 
+const main = document.querySelector("main")
 const senatorsDiv = document.querySelector('.senatorsDiv')
 const seniorityHeader = document.querySelector('.seniority')
 const loyaltyList = document.querySelector('.loyaltyList')
@@ -44,8 +46,9 @@ return senators.map(senator => {
 })
 }
 
-function populateSenatorDiv(senatorsArray) {
-senatorsArray.forEach(senator => {
+function populateSenatorDiv(senatorsArray) { 
+  removeChildren(senatorsDiv)
+senatorsArray.forEach((senator) => {
     const senFigure = document.createElement('figure')
     const figImg = document.createElement('img')
     const figCaption = document.createElement('figcaption')

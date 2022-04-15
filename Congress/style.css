@@ -4,11 +4,16 @@ padding: 0;
 box-sizing: border-box;
 }
 
+.buttonsDiv{
+display: flex;
+justify-content: center;
+}
+
 button {
     width: 9rem;
     height: 2.5rem;
     margin: 1rem;
-    background-color: dimgray;
+    background-color: black;
     color: whitesmoke;
     border-radius: 7px;
 }
