@@ -15,7 +15,7 @@ button {
     margin: 1rem;
     background-color: black;
     color: whitesmoke;
-    border-radius: 7px;
+    border-radius: 20px;
 }
 
 body{
@@ -61,7 +61,7 @@ figcaption {
 font-family: sans-serif;
 text-align: center;
 margin: 1px 6px;
-background: linear-gradient(#022653, #004f8f);
+background-image: url();
 border-radius: 5px;
 padding: 7px;
 font-weight: bold;
