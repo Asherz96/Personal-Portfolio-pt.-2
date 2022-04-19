@@ -9,12 +9,12 @@ const getAPIData = async (url) => {
 
   class Pokemon {
     constructor(name, height, weight, abilities, types) {
-      this.id = 9001,
-      this.name = name,
-      this.height = height,
-      this.weight = weight,
-      this.abilities = abilities,
-      this.types = types
+      ;(this.id = 9001),
+      (this.name = name),
+      (this.height = height),
+      (this.weight = weight),
+      (this.abilities = abilities),
+      (this.types = types)
     }
   }
 
@@ -36,29 +36,45 @@ const pokeTypes = prompt('What type(s) is your Pokemon? (up to 2 types separated
     pokeHeight, 
     pokeWeight, 
     makeAbilityArray(pokeAbilities), 
-    makeTypeArray(pokeTypes))
+    makeTypeArray(pokeTypes),
+    )
 
   populatePokeCard(newPokemon)
 })
 
 
-function makeAbilityArray(commaString) { // example of comma string 'run-away, lazor beam'
+function makeAbilityArray(commaString) { 
+// example of comma string 'run-away, lazor beam'
 return commaString.split(',').map((abilityName) => {
   return { ability: { name: abilityName } }
 })
 }
 
-function makeTypeArray(spacedString) { // example of spaced string 'fairy flying'
+function makeTypeArray(spacedString) { 
+// example of spaced string 'fairy flying'
   return spacedString.split(' ').map((typeName) => {
     return { type: { name: typeName } }
   })
   }
 
+  const loadedPokemon = []
+
   async function loadPokemon(offset = 0, limit = 25) {
-  const data = await getAPIData(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
+  const data = await getAPIData(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`,
+  )
   for (const nameAndURL of data.results) {
     const singlePokemon = await getAPIData(nameAndURL.url)
-    populatePokeCard(singlePokemon)
+    const simplifiedPokemon = {
+      id: singlePokemon.id,
+      height: singlePokemon.height,
+      weight: singlePokemon.weight,
+      name: singlePokemon.name,
+      abilities: singlePokemon.abilities,
+      types: singlePokemon.types,
+      moves: singlePokemon.moves.slice(0,3)
+    }
+    loadedPokemon.push(simplifiedPokemon)
+    populatePokeCard(simplifiedPokemon)
   }
 }
 
@@ -67,7 +83,9 @@ const pokeScene = document.createElement( 'div' )
 pokeScene.className = 'scene'
 const pokeCard = document.createElement( 'div' )
 pokeCard.className = 'card'
-pokeCard.addEventListener('click', () => pokeCard.classList.toggle('is-flipped'))
+pokeCard.addEventListener('click', () => 
+pokeCard.classList.toggle('is-flipped'),
+)
 // populate the front of the card
 pokeCard.appendChild(populateCardFront(pokemon))
 pokeCard.appendChild(populateCardBack(pokemon))
@@ -76,9 +94,17 @@ pokeGrid.appendChild(pokeScene)
 }
 
 function populateCardFront(pokemon) {
-  pokemon
 const pokeFront = document.createElement( 'figure' )
 pokeFront.className = 'cardFace Front' 
+
+const pokeType = pokemon.types[0].type.name
+// const pokeType2 = pokemon.types[1]?.type.name
+pokeFront.style.setProperty('background', getPokeTypeColor(pokeType))
+
+/*  if(pokeType2) {
+    pokeFront.style.setProperty('background', `linear-gradient(${getPokeTypeColor(pokeType)}, ${getPokeTypeColor(pokeType2)})`)
+  } */
+
 const pokeImg = document.createElement( 'img' )
 if (pokemon.id === 9001) {
   pokeImg.src = '/ImagesP/pball.png'
@@ -111,4 +137,48 @@ pokeBack.appendChild(abilityList)
 return pokeBack
 }
 
-loadPokemon(0, 200)
+funtion  getPokeTypeColor(pokeType) {
+  // if(pokeType === 'grass') return '#00FF00'
+  let color
+  switch (pokeType) {
+    case 'grass': color = '#00FF00'
+    break
+    case 'fire':
+      color = '#FF0000'
+      break
+    case 'water':
+      color = '#0000FF'
+      break
+    case 'bug':
+      color = '#7FFF00'
+      break
+    case 'normal':
+      color = '#F5F5DC'
+      break
+    case 'flying':
+      color = '#00FFFF'
+      break
+    case 'poison':
+      color = '#C300FF'
+      break
+    case 'electric':
+      color = '#C8FF00'
+      break
+    case 'psychic':
+      color = 'pink'
+      break
+    case 'ground':
+      color = 'brown'
+      break
+    default:
+      color = '#888888'
+  }
+  return color
+}
+
+function filterPokemonByType(type) {
+return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type)
+
+}
+
+await loadPokemon(0, 200)

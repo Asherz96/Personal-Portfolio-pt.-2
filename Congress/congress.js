@@ -2,8 +2,10 @@ import { senators } from '../Data/senators.js'
 import { representatives } from '../data/representatives.js'
 import { removeChildren } from '../utils/index.js'
 
-
 const allMembersOfCongress = [...senators, ...representatives] // modern combining of array data... like a genius!
+
+const header = document.querySelector("header")
+
 
 const seniorityHeader = document.querySelector('.seniority')
 const loyaltyList = document.querySelector('.loyaltyList')
@@ -34,7 +36,6 @@ buttonsDiv.appendChild(femaleSenatorsButton)
 buttonsDiv.appendChild(maleSenatorsButton)
 buttonsDiv.appendChild(democratsButton)
 buttonsDiv.appendChild(repubilcansButton)
-
 
 
 const senatorsDiv = document.querySelector('.senatorsDiv')
@@ -72,7 +73,7 @@ senatorsArray.forEach((senator) => {
 })
 }
 
-populateSenatorDiv(simplifiedSenators())
+populateSenatorsDiv(simplifiedSenators())
 
 const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
 

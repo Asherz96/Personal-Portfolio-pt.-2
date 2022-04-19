@@ -7,39 +7,43 @@ box-sizing: border-box;
 .buttonsDiv{
 display: flex;
 justify-content: center;
+
 }
 
 button {
     width: 9rem;
     height: 2.5rem;
-    margin: 1rem;
+    margin: 0.5rem 1rem;
     background-color: black;
     color: whitesmoke;
     border-radius: 20px;
+
 }
 
-body{
-    background-color: lightgray;
+button:hover{
+transform: translatey(2px);
 }
+
 
 h1 { 
 background-image: url(/Congress/ImagesC/ameflagbg.jpg);
 text-align: center;
 padding: 2rem;
 color: white;
-text-shadow: 1px 1px 1px lightgray;
+text-shadow: 1px 1px 1px darkgray;
 }
 
 .senatorsDiv {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+   border-top: solid 2px darkgrey;
+   margin: 1rem;
 }
 
 .seniority{
     margin: 1rem 2rem 3rem 3rem;
     padding: 1rem;
-    
 }
 
 p {
@@ -58,20 +62,28 @@ margin-bottom: 1rem;
 }
 
 figcaption {
+background-color: darkred;
 font-family: sans-serif;
 text-align: center;
-margin: 1px 6px;
-background-image: url();
-border-radius: 5px;
+margin: 0 4px 4px 4px;
 padding: 7px;
 font-weight: bold;
 color: white;
+text-shadow: 1px 1px 2px darkgray;
+border-radius: 10px;
 
 }
 
+figcaption:hover{
+background-color:aliceblue;
+color: black;
+
+  }
+
 img {
-margin: 15px;
-border: solid 3px #022653;
+height: 200px;
+margin: 15px 1px 0 5px;
+
 }
 
 
