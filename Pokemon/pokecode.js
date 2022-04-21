@@ -35,22 +35,22 @@ const pokeTypes = prompt('What type(s) is your Pokemon? (up to 2 types separated
     pokeName, 
     pokeHeight, 
     pokeWeight, 
-    makeAbilityArray(pokeAbilities), 
-    makeTypeArray(pokeTypes),
+    makeAbilitiesArray(pokeAbilities), 
+    makeTypesArray(pokeTypes),
     )
-
+  console.log(newPokemon)
   populatePokeCard(newPokemon)
 })
 
 
-function makeAbilityArray(commaString) { 
+function makeAbilitiesArray(commaString) { 
 // example of comma string 'run-away, lazor beam'
 return commaString.split(',').map((abilityName) => {
   return { ability: { name: abilityName } }
 })
 }
 
-function makeTypeArray(spacedString) { 
+function makeTypesArray(spacedString) { 
 // example of spaced string 'fairy flying'
   return spacedString.split(' ').map((typeName) => {
     return { type: { name: typeName } }
@@ -71,7 +71,7 @@ function makeTypeArray(spacedString) {
       name: singlePokemon.name,
       abilities: singlePokemon.abilities,
       types: singlePokemon.types,
-      moves: singlePokemon.moves.slice(0,3)
+      moves: singlePokemon.moves.slice(0, 3),
     }
     loadedPokemon.push(simplifiedPokemon)
     populatePokeCard(simplifiedPokemon)
@@ -79,9 +79,9 @@ function makeTypeArray(spacedString) {
 }
 
 function populatePokeCard(pokemon) {
-const pokeScene = document.createElement( 'div' )
+const pokeScene = document.createElement('div')
 pokeScene.className = 'scene'
-const pokeCard = document.createElement( 'div' )
+const pokeCard = document.createElement('div')
 pokeCard.className = 'card'
 pokeCard.addEventListener('click', () => 
 pokeCard.classList.toggle('is-flipped'),
@@ -94,24 +94,25 @@ pokeGrid.appendChild(pokeScene)
 }
 
 function populateCardFront(pokemon) {
-const pokeFront = document.createElement( 'figure' )
+const pokeFront = document.createElement('figure')
 pokeFront.className = 'cardFace Front' 
 
 const pokeType = pokemon.types[0].type.name
 // const pokeType2 = pokemon.types[1]?.type.name
+// console.log(pokeType, pokeType2)
 pokeFront.style.setProperty('background', getPokeTypeColor(pokeType))
 
 /*  if(pokeType2) {
     pokeFront.style.setProperty('background', `linear-gradient(${getPokeTypeColor(pokeType)}, ${getPokeTypeColor(pokeType2)})`)
   } */
 
-const pokeImg = document.createElement( 'img' )
+const pokeImg = document.createElement('img')
 if (pokemon.id === 9001) {
   pokeImg.src = '/ImagesP/pball.png'
 } else {
 pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
 }
-const pokeCaption = document.createElement( 'figcaption' )
+const pokeCaption = document.createElement('figcaption')
 pokeCaption.textContent = pokemon.name
 
 pokeFront.appendChild(pokeImg)
@@ -119,7 +120,7 @@ pokeFront.appendChild(pokeCaption)
 return pokeFront
 }
 
-function populateCardBack(pokemon){
+function populateCardBack(pokemon) {
 const pokeBack = document.createElement('div')
 pokeBack.className = 'cardFace Back'
 const label = document.createElement('h4')
@@ -137,7 +138,7 @@ pokeBack.appendChild(abilityList)
 return pokeBack
 }
 
-funtion  getPokeTypeColor(pokeType) {
+function getPokeTypeColor(pokeType) {
   // if(pokeType === 'grass') return '#00FF00'
   let color
   switch (pokeType) {
@@ -178,7 +179,16 @@ funtion  getPokeTypeColor(pokeType) {
 
 function filterPokemonByType(type) {
 return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type)
-
 }
 
-await loadPokemon(0, 200)
+await loadPokemon(0, 150)
+
+
+const selectType = document.querySelector('.type-selector');
+selectType.addEventListener('change', (event) => {
+console.log(`You like ${event.target.value} `);
+ const filteredByType = filterPokemonByType(event.target.value)
+ // array of pokemon filtered by their type
+removeChildren(pokeGrid) // clears out main grid of pokemon displayed
+filteredByType.forEach(pokemon => populatePokeCard(pokemon))
+})
