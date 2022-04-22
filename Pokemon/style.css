@@ -1,13 +1,15 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  
 }
 
 header {
   display: flex;
   flex-direction: column;
   background: linear-gradient(#3d7dca, white);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  
 }
 
 h1 {
@@ -15,39 +17,68 @@ h1 {
   text-align: center;
   font-size: 4rem;
   padding-top: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   font-family: "Luckiest Guy", cursive;
   color: #ffde00;
-  text-shadow: 2px 2px 2px #003a70;
+  -webkit-text-stroke: 2px #003a70;
+  animation-name: rotate;
+  animation-duration: 3s;
+  animation-delay: 4s; 
 }
 
+@keyframes rotate {
+    0% {
+        transform: rotateX(0);
+      }
+      100% {
+        transform: rotateX(360deg);
+      }
+    }
+  
+
 h2 {
-  font-family: "Gochi Hand", cursive;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-align: center;
-  color: #ffde00;
-  text-shadow: 2px 2px 2px #003a70;
-  border: solid 1px #3d7dca;
-  margin: 0 1rem;
+  color: white;
+  -webkit-text-stroke: 1px #003a70;
+  background-color: #3d7dca;
   padding: 5px;
 }
 
 button {
   font-family: "Press Start 2P", cursive;
   font-size: x-small;
-  width: 175px;
-  margin: 2rem 2rem 0 2rem;
+  width: 150px;
+  margin: 1rem 2rem 0 1rem;
   padding: 0.5rem;
   color: white;
   background-color: #003a70;
   border-radius: 9px;
   cursor: pointer;
+  animation-name: slidein;
+  animation-duration: 3s;
 }
+
+@keyframes slidein {
+from {
+    margin-left: -100%;
+    width: 12%;
+  }
+
+  to {
+    margin-right: 100%;
+    width: 12%;
+  }
+}
+
 
 button:hover {
   transform: translatey(3px);
 }
 
 body {
-  cursor: url(/Pokemon/ImagesP/pokebal-icon-.png), auto;
+  cursor: url(/Pokemon/ImagesP/pmon\ pball\ cursor.png), auto;
 }
 
 main {
@@ -73,6 +104,7 @@ main {
 .card {
   width: 100%;
   height: 100%;
+  margin:1em 0;
   transition: transform 2s;
   transform-style: preserve-3d;
   position: relative;
@@ -109,6 +141,7 @@ h4 {
   width: 160px;
   text-align: center;
   font-family: "Press Start 2P", cursive;
+  font-size: x-small;
   padding: 4px 0 2px 0;
   margin-left: 12px;
   margin-top: 7px;

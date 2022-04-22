@@ -4,53 +4,72 @@ padding: 0;
 box-sizing: border-box;
 }
 
+body {
+    background: linear-gradient(white, lightgray, white);
+    color: black;
+}
+
 .buttonsDiv{
 display: flex;
 justify-content: center;
+animation-name: slidein;
+animation-duration: 5s;
 
 }
+
+@keyframes slidein {
+    from {
+        margin-left: -100%;
+        width: 50%;
+      }
+    
+      to {
+        margin-right: 100%;
+        width: 100%;
+      }
+    }
 
 button {
     width: 9rem;
     height: 2.5rem;
     margin: 0.5rem 1rem;
     background-color: black;
-    color: whitesmoke;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 20px;
-
 }
 
 button:hover{
 transform: translatey(2px);
+background-color: white;
+color: black;
 }
 
 
 h1 { 
-background-image: url(/Congress/ImagesC/ameflagbg.jpg);
+background-image: url(/Congress/ImagesC/Flag2sliderimage.jpeg);
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 text-align: center;
+font-size: 3rem;
 padding: 2rem;
 color: white;
-text-shadow: 1px 1px 1px darkgray;
-}
-
-.senatorsDiv {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-   border-top: solid 2px darkgrey;
-   margin: 1rem;
+-webkit-text-stroke: 2px black; 
+text-shadow: 1px 1px 3px lightgray;
 }
 
 .seniority{
-    margin: 1rem 2rem 3rem 3rem;
+    text-align: center;
+    font-size: large;
+    margin: 1rem 0 2rem 0;
     padding: 1rem;
 }
 
 p {
 text-align: center;
-color: #022653;
+color: black;
 font-size: x-large;
-font-weight: bolder;
+font-weight: bold;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .loyaltyList {
@@ -61,34 +80,49 @@ justify-content: space-evenly;
 margin-bottom: 1rem;
 }
 
-figcaption {
-background-color: darkred;
-font-family: sans-serif;
-text-align: center;
-margin: 0 4px 4px 4px;
-padding: 7px;
-font-weight: bold;
-color: white;
-text-shadow: 1px 1px 2px darkgray;
-border-radius: 10px;
+.senatorsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    border-top: solid 2px darkgrey;
+    padding-top: 1rem;
+   margin: 1rem;
+}
+
+figure{
+  margin: 5px;  
 
 }
 
+figure:hover{
+    transform: translatey(3px);
+}
+
+img {
+    height: 175px;
+
+}
+
+figcaption {
+display: flex;
+justify-content: center;
+width: 100%;
+background-color: darkred;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+text-align: center;
+padding: 7px;
+color: white;
+border-radius: 5px;
+}
+
 figcaption:hover{
-background-color:aliceblue;
+background-color:lightgray;
 color: black;
 
   }
 
-img {
-height: 200px;
-margin: 15px 1px 0 5px;
-
-}
-
-
 footer{
-    background-image: url(/Congress/ImagesC/ameflagbg.jpg);
+    background-image: url(/Congress/ImagesC/Flag2sliderimage.jpeg);
     text-align: center;
     color: white;
     padding: 20px;
