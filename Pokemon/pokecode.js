@@ -147,9 +147,21 @@ const labelTypes = document.createElement('h4')
   })
   pokeBack.appendChild(typesList)
 
+  const labelMoves = document.createElement('h4')
+  labelMoves.textContent = 'Moves'
+  pokeBack.appendChild(labelMoves)
+
+  const movesList = document.createElement('ul')
+  pokemon.moves.forEach((movesItem) => {
+    const listItem = document.createElement('li')
+    listItem.textContent = movesItem.move.name
+    movesList.appendChild(listItem)
+  })
+  pokeBack.appendChild(movesList)
+
+
 return pokeBack
 }
-
 
 function getPokeTypeColor(pokeType) {
   // if(pokeType === 'grass') return '#00FF00'
