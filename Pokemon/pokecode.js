@@ -38,7 +38,6 @@ const pokeTypes = prompt('What type(s) is your Pokemon? (up to 2 types separated
     makeAbilitiesArray(pokeAbilities), 
     makeTypesArray(pokeTypes),
     )
-  console.log(newPokemon)
   populatePokeCard(newPokemon)
 })
 
@@ -98,18 +97,19 @@ const pokeFront = document.createElement('figure')
 pokeFront.className = 'cardFace Front' 
 
 const pokeType = pokemon.types[0].type.name
-// const pokeType2 = pokemon.types[1]?.type.name
-// console.log(pokeType, pokeType2)
+const pokeType2 = pokemon.types[1]?.type.name
+console.log(pokeType,pokeType2)
 pokeFront.style.setProperty('background', getPokeTypeColor(pokeType))
+//pokeBack.style.setProperty('background', getPokeTypeColor(pokeType))
 
-/*  if(pokeType2) {
+if(pokeType2) {
     pokeFront.style.setProperty('background', `linear-gradient(${getPokeTypeColor(pokeType)}, ${getPokeTypeColor(pokeType2)})`)
-  } */
+  } 
 
 const pokeImg = document.createElement('img')
 if (pokemon.id === 9001) {
-  pokeImg.src = '/ImagesP/pball.png'
-} else {
+  pokeImg.src = ''
+}  else {
 pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
 }
 const pokeCaption = document.createElement('figcaption')
@@ -121,11 +121,14 @@ return pokeFront
 }
 
 function populateCardBack(pokemon) {
+  
 const pokeBack = document.createElement('div')
 pokeBack.className = 'cardFace Back'
-const label = document.createElement('h4')
-label.textContent = 'Abilities'
-pokeBack.appendChild(label)
+ // pokeBack.style.setProperty('background', getPokeTypeColor(pokeType))
+
+const abilitieslabel = document.createElement('h4')
+abilitieslabel.textContent = 'Abilities'
+pokeBack.appendChild(abilitieslabel)
 
 const abilityList = document.createElement('ul')
 pokemon.abilities.forEach((abilityItem) => {
@@ -138,41 +141,43 @@ pokeBack.appendChild(abilityList)
 return pokeBack
 }
 
+
 function getPokeTypeColor(pokeType) {
   // if(pokeType === 'grass') return '#00FF00'
   let color
   switch (pokeType) {
-    case 'grass': color = '#00FF00'
+    case 'grass': 
+    color = '#28965A'
     break
     case 'fire':
-      color = '#FF0000'
+      color = '#A50104'
       break
     case 'water':
-      color = '#0000FF'
+      color = '#0075A2'
       break
     case 'bug':
-      color = '#7FFF00'
+      color = '#A1C349'
       break
     case 'normal':
-      color = '#F5F5DC'
+      color = '#CCC9A1'
       break
     case 'flying':
       color = '#00FFFF'
       break
     case 'poison':
-      color = '#C300FF'
+      color = '#CD9FCC'
       break
     case 'electric':
-      color = '#C8FF00'
+      color = '#F4E04D'
       break
     case 'psychic':
-      color = 'pink'
+      color = '#FFB7C3'
       break
     case 'ground':
-      color = 'brown'
+      color = '#F0A868'
       break
     default:
-      color = '#888888'
+      color = '#DED6D1'
   }
   return color
 }
@@ -182,13 +187,3 @@ return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type)
 }
 
 await loadPokemon(0, 150)
-
-
-const selectType = document.querySelector('.type-selector');
-selectType.addEventListener('change', (event) => {
-console.log(`You like ${event.target.value} `);
- const filteredByType = filterPokemonByType(event.target.value)
- // array of pokemon filtered by their type
-removeChildren(pokeGrid) // clears out main grid of pokemon displayed
-filteredByType.forEach(pokemon => populatePokeCard(pokemon))
-})
