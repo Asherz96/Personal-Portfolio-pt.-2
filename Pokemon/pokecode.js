@@ -1,3 +1,6 @@
+import {removeChildren} from '../Utils/index.js'
+
+
 const getAPIData = async (url) => {
     try {
       const result = await fetch(url)
@@ -8,18 +11,33 @@ const getAPIData = async (url) => {
   }
 
   class Pokemon {
-    constructor(name, height, weight, abilities, types) {
+    constructor(name, height, weight, abilities, types, moves) {
       (this.id = 9001),
       (this.name = name),
       (this.height = height),
       (this.weight = weight),
       (this.abilities = abilities),
-      (this.types = types)
+      (this.types = types),
+      (this.moves = moves)
     }
   }
 
+  const loadedPokemon = []
+
 const pokeHeader = document.querySelector('header')
 const pokeGrid = document.querySelector('.pokeGrid')
+
+const loadButton = document.createElement('button')
+loadButton.textContent = 'Load Pokemon'
+pokeHeader.appendChild(loadButton)
+loadButton.addEventListener('click', async () => {
+  removeChildren(pokeGrid)
+if( loadedPokemon.length === 0) {
+  await loadPokemon(0, 50)
+} else {
+  loadedPokemon.forEach((item) => populatePokeCard(item))
+}
+})
 
 const newButton = document.createElement('button')
 newButton.textContent = 'New Pokemon'
@@ -30,6 +48,7 @@ newButton.addEventListener('click', () => {
   const pokeWeight = prompt('How much does your Pokemon weigh?', 300)
   const pokeAbilities = prompt("What are your Pokemon's abilities? (use a comma separated list)")
 const pokeTypes = prompt('What type(s) is your Pokemon? (up to 2 types separated by a space)')
+const pokeMoves = prompt('What moves can your Pokemon do? (up to 3 moves separated by a - (dash))')
 
   const newPokemon = new Pokemon (
     pokeName, 
@@ -37,6 +56,7 @@ const pokeTypes = prompt('What type(s) is your Pokemon? (up to 2 types separated
     pokeWeight, 
     makeAbilitiesArray(pokeAbilities), 
     makeTypesArray(pokeTypes),
+    makeMovessArray(pokeMoves),
     )
   populatePokeCard(newPokemon)
 })
@@ -55,7 +75,13 @@ function makeTypesArray(spacedString) {
   })
   }
 
-  const loadedPokemon = []
+  function makeMovessArray(dashString) { 
+    // example of dash string 'fairy-flying'
+      return dashString.split('-').map((moveName) => {
+        return { move: { name: moveName } }
+      })
+      }
+    
 
   async function loadPokemon(offset = 0, limit = 25) {
   const data = await getAPIData(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`,
@@ -70,6 +96,8 @@ function makeTypesArray(spacedString) {
       abilities: singlePokemon.abilities,
       types: singlePokemon.types,
       moves: singlePokemon.moves.slice(0, 3),
+      hp:  singlePokemon.stats[0].base_stat
+    
     }
     loadedPokemon.push(simplifiedPokemon)
     populatePokeCard(simplifiedPokemon)
@@ -97,8 +125,9 @@ pokeFront.className = 'cardFace Front'
 
 const pokeType = pokemon.types[0].type.name
 const pokeType2 = pokemon.types[1]?.type.name
-console.log(pokeType,pokeType2)
+// console.log(pokeType,pokeType2)
 pokeFront.style.setProperty('background', getPokeTypeColor(pokeType))
+// pokeBack.style.setProperty('background', getPokeTypeColor(pokeType))
 
 if(pokeType2) {
     pokeFront.style.setProperty('background', `linear-gradient(${getPokeTypeColor(pokeType)}, ${getPokeTypeColor(pokeType2)})`)
@@ -159,6 +188,9 @@ const labelTypes = document.createElement('h4')
   })
   pokeBack.appendChild(movesList)
 
+  const pokeHP = document.createElement('h4')
+  pokeHP.textContent = `HP: ${pokemon.hp}`
+  pokeBack.appendChild(pokeHP)
 
 return pokeBack
 }
@@ -231,4 +263,19 @@ function filterPokemonByType(type) {
 return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type)
 }
 
-await loadPokemon(0, 40)
+const typeSelect = document.querySelector('.typeSelect')
+typeSelect.addEventListener('change', (event) => {
+  const usersTypeChoice = event.target.value.toLowerCase()
+const pokemonByType = filterPokemonByType(usersTypeChoice)
+removeChildren(pokeGrid)
+pokemonByType.forEach((singlePokemon) => populatePokeCard(singlePokemon))
+
+})
+
+
+function calculateHp() {
+  const mostHP = loadedPokemon().reduce((acc, pokemon) => acc.hp > pokemon.hp ? acc : pokemon, {})
+
+const messageArea = document.querySelector('.messageArea')
+messageArea.textContent = `${mostHP.name[0].toUpperCase()}${mostHP.name.substring(1)} has the most HP at ${mostHP.hp}`
+ }

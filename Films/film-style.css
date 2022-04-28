@@ -11,39 +11,42 @@ cursor: url(/Films/ImagesF/green\ lightsaber.png), auto;
 }
 
 h1 {
-  color:whitesmoke;
+  padding: 1rem;
+  color:white;
   display: flex;
   justify-content: center;
-  margin: 2rem;
+  margin: 10px;
   font-family: 'Cinzel', serif;
-  text-shadow: 1px 1px 1px darkgray;
+  border: solid 1px gray;
 }
 
 main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
 }
 
-figure img {
+figure:hover{
+  transform: translatey(5px);
+}
+
+img {
   height: 20rem;
-  margin: 1rem;
+  margin: 5px 20px;
   box-shadow: 1px 1px 3px darkgray;
 }
- img:hover {
-  transform: translatey(5px);
- }
-
+ 
 figcaption {
-  margin: 1rem 1rem;
+  margin: 5px 20px 15px 20px;
   text-align: center;
   background-color: black;
   padding: 7px;
   border-radius: 15px;
   color: white;
   font-family: 'Cinzel', serif;
-  
  }
+
  figcaption:hover{
    background-color: darkred;
  }
@@ -53,7 +56,8 @@ figcaption {
   background-color: black;
   color: white;
   padding: 20px;
+  margin: 10px;
   font-size: x-small;
-  margin-top: 1rem;
+  border: solid 1px gray;
 }
 

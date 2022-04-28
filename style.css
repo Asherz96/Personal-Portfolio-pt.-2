@@ -38,12 +38,12 @@ img {
   display: flex;
   justify-content: center;
   list-style-type: none;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .navlist a {
   display: block;
-  padding: 2rem;
+  padding: 1.5rem;
   font-size: large;
   text-decoration: none;
   color: rgb(255, 255, 255);

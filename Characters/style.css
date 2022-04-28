@@ -1,68 +1,78 @@
-*{
+* {
   cursor: url(/Characters/Imagesch/purple\ lightsaber.png), auto;
 }
 
 header {
-display: flex;
-justify-content: center;
-
+  display: flex;
+  justify-content: center;
 }
 
-body{
-  background-image: url(/Characters/ImagesCH/dark-background-4.jpg);
+body {
+  background: linear-gradient(black, gray, black);
 }
 
 h1 {
   text-align: center;
+  font-family: "Cinzel", serif;
+  color: whitesmoke;
+  padding: 1rem;
+  text-shadow: 1px 1px 1px darkgray;
+  border: solid 1px gray;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  width: 9rem;
+  height: 2.5rem;
+  margin: 0 1rem 2rem 1rem;
+  font-size: small;
+  background-color: black;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 20px;
+  box-shadow: 1px 1px 2px grey;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}
+
+figure:hover {
+  transform: translatey(2px);
+}
+
+img {
+  height: 300px;
+}
+
+figcaption {
+  text-align: center;
+  margin-top: 5px;
+  background-color: black;
+  padding: 0.5rem;
+  border-radius: 15px;
+  color: white;
+  -webkit-text-stroke: 0.6px rgb(0, 0, 0); 
+  font-size: x-large;
   font-family: 'Cinzel', serif;
- color: whitesmoke;
- padding: 1rem;
- text-shadow: 1px 1px 1px darkgray;
 }
 
-main{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+figcaption:hover {
+  background-color: white;
 }
 
-  figure img {
-    height: 20rem;
-  }
-
-  
-  button {
-    width: 9rem;
-    height: 2.5rem;
-    margin: 1rem;
-    background-color: darkred;
-    color: whitesmoke;
-    border-radius: 5px;
-    font-size: small;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-   }
-
-   button:hover {
-    transform: translatey(2px);
-   }
-
-  figcaption {
-   text-align: center;
-   background-color: black;
-   padding: 0.5rem;
-   border-radius: 15px;
-   color: white;
-   text-shadow: 1px 1px 0.5px darkred;
-   margin-top: 5px;
-
-  }
-
-  footer{
-    text-align: center;
-    background-color: black;
-    color: white;
-    padding: 10px;
-    font-size: x-small;
-    margin-top: 0.5rem;
-  }
+footer {
+  text-align: center;
+  color: white;
+  font-size: x-small;
+  background-color: black;
+  padding: 10px;
+  margin-top: 0.5rem;
+  border: solid 1px gray;
+}
