@@ -23,7 +23,7 @@ h1 {
 main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content:space-evenly;
 }
 
 button {
@@ -36,11 +36,16 @@ button {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 20px;
   box-shadow: 1px 1px 2px grey;
+  letter-spacing: 2px;
 }
-
+  
 button:hover {
   background-color: white;
   color: black;
+}
+
+figure {
+  border: double 3px black;
 }
 
 figure:hover {
@@ -49,14 +54,13 @@ figure:hover {
 
 img {
   height: 300px;
+  width: 100%;
 }
 
 figcaption {
   text-align: center;
-  margin-top: 5px;
   background-color: black;
   padding: 0.5rem;
-  border-radius: 15px;
   color: white;
   -webkit-text-stroke: 0.6px rgb(0, 0, 0); 
   font-size: x-large;

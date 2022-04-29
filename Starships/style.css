@@ -9,16 +9,17 @@ body {
 background-image: url(/Starships/ImagesSS/galaxybackground.png);
 }
 
+
 h1 {
+    margin: 0 10px 1rem 10px;
     text-align: center;
-    margin-bottom: 1rem;
     color: white;
     background-color: black;
-    padding: 0.5rem;
+    padding: 1rem;
     font-family: 'Cinzel', serif;
     font-weight: bold;
     font-size: xx-large;
-    text-shadow: 1px 1px 1px grey;
+    border: solid 1px gray;
     }
     
 .mainContainer {
@@ -56,13 +57,10 @@ min-width: 20rem;
     list-style-type: none;
     font-family: monospace;
     padding: 1rem;
-
+border: dashed 2px lightgray;
 }
 
 li:hover {
-background-color: rgb(17, 11, 17);
-padding: 7px;
-border-radius: 7px;
 box-shadow: 1px 1px 2px white;
 }
 
@@ -79,8 +77,10 @@ footer{
     text-align: center;
     background-color: black;
     color: white;
-    padding: 1.5rem;
     font-size: x-small;
+    padding: 20px;
+    border: solid 1px gray;
+    margin: 0 10px 1rem 10px;
 
 }
 

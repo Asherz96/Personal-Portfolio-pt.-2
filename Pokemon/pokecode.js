@@ -11,14 +11,15 @@ const getAPIData = async (url) => {
   }
 
   class Pokemon {
-    constructor(name, height, weight, abilities, types, moves) {
+    constructor(name, height, weight, abilities, types, moves, hp) {
       (this.id = 9001),
       (this.name = name),
       (this.height = height),
       (this.weight = weight),
       (this.abilities = abilities),
       (this.types = types),
-      (this.moves = moves)
+      (this.moves = moves),
+      (this.hp = hp)
     }
   }
 
@@ -26,14 +27,15 @@ const getAPIData = async (url) => {
 
 const pokeHeader = document.querySelector('header')
 const pokeGrid = document.querySelector('.pokeGrid')
+const pokebButtons = document.querySelector('.pokeButtons')
 
 const loadButton = document.createElement('button')
 loadButton.textContent = 'Load Pokemon'
-pokeHeader.appendChild(loadButton)
+pokebButtons.appendChild(loadButton)
 loadButton.addEventListener('click', async () => {
   removeChildren(pokeGrid)
 if( loadedPokemon.length === 0) {
-  await loadPokemon(0, 50)
+  await loadPokemon(0, 150)
 } else {
   loadedPokemon.forEach((item) => populatePokeCard(item))
 }
@@ -41,7 +43,7 @@ if( loadedPokemon.length === 0) {
 
 const newButton = document.createElement('button')
 newButton.textContent = 'New Pokemon'
-pokeHeader.appendChild(newButton)
+pokebButtons.appendChild(newButton)
 newButton.addEventListener('click', () => {
   const pokeName = prompt('What is the name of your nem Pokemon?', 'Asherz')
   const pokeHeight = prompt('What is the height of your Pokemon?', '2ft')
@@ -49,6 +51,7 @@ newButton.addEventListener('click', () => {
   const pokeAbilities = prompt("What are your Pokemon's abilities? (use a comma separated list)")
 const pokeTypes = prompt('What type(s) is your Pokemon? (up to 2 types separated by a space)')
 const pokeMoves = prompt('What moves can your Pokemon do? (up to 3 moves separated by a - (dash))')
+const pokeHP = prompt("What is your pokemon's HP?")
 
   const newPokemon = new Pokemon (
     pokeName, 
@@ -57,6 +60,7 @@ const pokeMoves = prompt('What moves can your Pokemon do? (up to 3 moves separat
     makeAbilitiesArray(pokeAbilities), 
     makeTypesArray(pokeTypes),
     makeMovessArray(pokeMoves),
+    pokeHP,
     )
   populatePokeCard(newPokemon)
 })
@@ -142,6 +146,7 @@ pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/
 const pokeCaption = document.createElement('figcaption')
 pokeCaption.textContent = pokemon.name
 
+
 pokeFront.appendChild(pokeImg)
 pokeFront.appendChild(pokeCaption)
 return pokeFront
@@ -151,6 +156,14 @@ function populateCardBack(pokemon) {
   
 const pokeBack = document.createElement('div')
 pokeBack.className = 'cardFace Back'
+
+const labelHeight = document.createElement('h3')
+labelHeight.textContent = 'Height: ' + pokemon.height
+  pokeBack.appendChild(labelHeight)
+
+const labelWeight = document.createElement('h3')
+labelWeight.textContent = 'Weight: ' + pokemon.weight
+  pokeBack.appendChild(labelWeight)
 
 const abilitieslabel = document.createElement('h4')
 abilitieslabel.textContent = 'Abilities'

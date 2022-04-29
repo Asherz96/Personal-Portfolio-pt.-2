@@ -93,24 +93,28 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
 }
 
 .project-tile {
   margin: 2rem;
+  border: solid 4px rgb(79, 17, 138);
+  border-radius: 10px 0;
 }
 
 .project-tile img {
   width: 20rem;
-  box-shadow: #ffffff  -0.5px -0.5px 8px;
+  
 }
 
 figcaption {
   text-align: center;
   color: aliceblue;
   background-color: rgba(0, 18, 71, 0.589);
-  padding: 1.5rem;
-  font-size: medium;
-  box-shadow: #ffffff   0.5px 0.5px 8px;
+  padding: 1rem;
+  font-size: large;
+  letter-spacing: 3px;
+
 }
 
 /* this is the Contact section */
@@ -147,7 +151,7 @@ figcaption {
 }
 
 .contact-details {
-  transition: transform 0.3s ease-out;
+  transition: transform 0.2s ease-out;
 }
 
 .contact-details:hover {

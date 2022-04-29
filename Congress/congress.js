@@ -11,6 +11,7 @@ const seniorityHeader = document.querySelector('.seniority')
 const loyaltyList = document.querySelector('.loyaltyList')
 const buttonsDiv = document.querySelector('.buttonsDiv')
 
+
 const femaleSenators = simplifiedSenators().filter(senators => senators.gender === 'F') 
 const maleSenators = simplifiedSenators().filter(senators => senators.gender === 'M')
 const democrats = simplifiedSenators().filter(senators => senators.party === 'D') 
@@ -32,6 +33,7 @@ const repubilcansButton = document.createElement('button')
 repubilcansButton.textContent = "Republicans"
 repubilcansButton.addEventListener("click", () => populateSenatorsDiv(republicans))
 
+
 buttonsDiv.appendChild(femaleSenatorsButton)
 buttonsDiv.appendChild(maleSenatorsButton)
 buttonsDiv.appendChild(democratsButton)
@@ -39,6 +41,7 @@ buttonsDiv.appendChild(repubilcansButton)
 
 
 const senatorsDiv = document.querySelector('.senatorsDiv')
+// const representativesDiv = document.querySelector('.representativesDiv')
 
 function simplifiedSenators() {
 return senators.map(senator => {
@@ -58,6 +61,24 @@ return senators.map(senator => {
 })
 }
 
+ /* function simplifiedRepresentatives() {
+  return representatives.map(representative => {
+        const middleName = representative.middle_name ? ` ${representative.middle_name} ` : ` `
+        return {
+            id: representative.id,
+            name: `${representative.first_name}${middleName}${representative.last_name}`,
+            gender: representative.gender,
+            party: representative.party,
+            imgURL: `https://www.govtrack.us/static/legislator-photos/${representative.govtrack_id}-200px.jpeg`,
+            seniority: +representative.seniority,
+            state: representative.state,
+            missedVotesPct: representative.missed_votes_pct,
+            loyaltyPct: representative.votes_with_party_pct,
+            
+        }
+    })
+    } */
+
 function populateSenatorsDiv(senatorsArray) { 
     removeChildren(senatorsDiv)
 senatorsArray.forEach((senator) => {
@@ -73,7 +94,24 @@ senatorsArray.forEach((senator) => {
 })
 }
 
+/* 
+function populateRepresentativesDiv(representativesArray) { 
+    removeChildren(senatorsDiv)
+representativesArray.forEach((representative) => {
+    const repFigure = document.createElement('figure')
+    const figImg = document.createElement('img')
+    const figCaption = document.createElement('figcaption')
+    figImg.src = senator.imgURL
+    figCaption.textContent = senator.name
+
+    repFigure.appendChild(figImg)
+    senFigure.appendChild(figCaption)
+    senatorsDiv.appendChild(repFigure)
+})
+}*/
+
 populateSenatorsDiv(simplifiedSenators())
+// populateRepresentativesDiv(simplifiedRepresentatives())
 
 const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
 
