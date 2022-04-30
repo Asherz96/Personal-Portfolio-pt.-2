@@ -10,6 +10,7 @@ const getAPIData = async (url) => {
     }
   }
 
+
   class Pokemon {
     constructor(name, height, weight, abilities, types, moves, hp) {
       (this.id = 9001),
@@ -27,11 +28,11 @@ const getAPIData = async (url) => {
 
 const pokeHeader = document.querySelector('header')
 const pokeGrid = document.querySelector('.pokeGrid')
-const pokebButtons = document.querySelector('.pokeButtons')
+const pokeButtons = document.querySelector('.pokeButtons')
 
 const loadButton = document.createElement('button')
 loadButton.textContent = 'Load Pokemon'
-pokebButtons.appendChild(loadButton)
+pokeButtons.appendChild(loadButton)
 loadButton.addEventListener('click', async () => {
   removeChildren(pokeGrid)
 if( loadedPokemon.length === 0) {
@@ -43,7 +44,7 @@ if( loadedPokemon.length === 0) {
 
 const newButton = document.createElement('button')
 newButton.textContent = 'New Pokemon'
-pokebButtons.appendChild(newButton)
+pokeButtons.appendChild(newButton)
 newButton.addEventListener('click', () => {
   const pokeName = prompt('What is the name of your nem Pokemon?', 'Asherz')
   const pokeHeight = prompt('What is the height of your Pokemon?', '2ft')
@@ -165,6 +166,10 @@ const labelWeight = document.createElement('h3')
 labelWeight.textContent = 'Weight: ' + pokemon.weight
   pokeBack.appendChild(labelWeight)
 
+  const pokeHP = document.createElement('h3')
+  pokeHP.textContent = `HP: ${pokemon.hp}`
+  pokeBack.appendChild(pokeHP)
+
 const abilitieslabel = document.createElement('h4')
 abilitieslabel.textContent = 'Abilities'
 pokeBack.appendChild(abilitieslabel)
@@ -201,9 +206,7 @@ const labelTypes = document.createElement('h4')
   })
   pokeBack.appendChild(movesList)
 
-  const pokeHP = document.createElement('h4')
-  pokeHP.textContent = `HP: ${pokemon.hp}`
-  pokeBack.appendChild(pokeHP)
+
 
 return pokeBack
 }

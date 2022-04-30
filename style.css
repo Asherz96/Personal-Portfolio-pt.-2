@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -10,12 +11,10 @@ html {
 
 a {
   text-decoration: none;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #27187e;
+  background-color: white;
 }
 
 img {
@@ -31,7 +30,7 @@ img {
   width: 100%;
   top: 0;
   left: 0;
-  background-color: #27187e;
+  background-color: rgb(189, 166, 108);
 }
 
 .navlist {
@@ -46,18 +45,20 @@ img {
   padding: 1.5rem;
   font-size: large;
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: rgb(114, 84, 6);
 }
 
 .navlist a:hover {
-  background-color: #aeb8fe;
-  color: rgb(0, 0, 0);
+  background-color: darkgoldenrod;
+  color: white;
 }
 
 /* this is the Welcome section */
 #welcome-section {
   height: 100vh;
-  background-color: #758bfd;
+  background-image: url(pics/daisies.jpeg);
+  background-repeat: no-repeat;
+  background-size: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,28 +67,36 @@ img {
 
 #welcome-section h1 {
   font-size: 6rem;
-  color: rgb(255, 255, 255);
+  color: white;
+  -webkit-text-stroke: 2px rgb(114, 84, 6);
 }
 #welcome-section h3 {
+  text-align: center;
   font-family: "Oxygen", sans-serif;
   font-size: xx-large;
   font-weight: 300;
   font-style: italic;
-  color: #27187e;
+  padding: 20px 0;
+  color: black;
+  background-color: #fefae0;
+  width: 100%;
 }
 /* this is the Projects section */
 #projects {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #aeb8fe;
+  background-color: #fefae0;
   padding: 8rem 0;
+  
 }
 
 #projects h2 {
   font-size: 35px;
   color: black;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 2px goldenrod;
+  margin-bottom: 1rem;
 }
 .projecttiles {
   display: flex;
@@ -98,7 +107,7 @@ img {
 
 .project-tile {
   margin: 2rem;
-  border: solid 4px rgb(79, 17, 138);
+  border: solid 4px black;
   border-radius: 10px 0;
 }
 
@@ -109,8 +118,8 @@ img {
 
 figcaption {
   text-align: center;
-  color: aliceblue;
-  background-color: rgba(0, 18, 71, 0.589);
+  color: white;
+  background-color: black;
   padding: 1rem;
   font-size: large;
   letter-spacing: 3px;
@@ -122,8 +131,8 @@ figcaption {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #758bfd;
-  color: rgb(255, 255, 255);
+  background-color: rgb(189, 166, 108);
+  color: white;
   padding: 4rem;
 }
 #contact h1 {
@@ -133,7 +142,7 @@ figcaption {
   font-size: 20px;
   font-weight: 400;
   font-style: italic;
-  color: #27187e;
+  color: rgb(114, 84, 6);
   padding-bottom: 4rem;
 }
 
@@ -147,7 +156,7 @@ figcaption {
   font-weight: 500;
   color: black;
   padding: 0 1.5rem;
-  text-shadow: #aeb8fe 2px 2px 3px;
+  text-shadow: #fef5ae 2px 2px 3px;
 }
 
 .contact-details {
@@ -162,9 +171,9 @@ footer p {
   text-align: center;
   padding: 3rem 0;
   margin-top: 5px;
-  background-color: #758bfd;
-  color: white;
-  font-size: 15px;
+  background-color: rgb(189, 166, 108);
+  color: black;
+  font-size: 10px;
 }
 
 /* 1200px / 16px = 75em */
