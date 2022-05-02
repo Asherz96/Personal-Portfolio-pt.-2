@@ -48,9 +48,6 @@ figure {
   border: double 3px black;
 }
 
-figure:hover {
-  transform: translatey(2px);
-}
 
 img {
   height: 300px;
